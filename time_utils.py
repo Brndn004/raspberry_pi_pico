@@ -12,6 +12,14 @@ GMT_SAN_FRANCISCO_OFFSET_HOURS = -8
 CurrentTime = collections.namedtuple("CurrentTime", "hour minute second")
 
 
+def time_this_func(func, *args, **kwargs):
+    """Print the duration that a function took to execute."""
+    start = time.ticks_us()
+    func(*args, **kwargs)
+    end = time.ticks_us()
+    print(f"Function took {(end - start) * 1e-6} seconds to execute.")
+
+
 def get_time() -> CurrentTime:
     """Get a tuple representing the current time in GMT-8.
 
@@ -42,6 +50,11 @@ def time_matches_now(hour: int, minute: int) -> bool:
     if curr_time.hour == hour and curr_time.minute == minute:
         return True
     return False
+
+
+def minutes_are_odd() -> bool:
+    """Return True if the current minutes are an odd number."""
+    return get_time().minute % 2 == 1
 
 
 def set_time_via_internet() -> bool:

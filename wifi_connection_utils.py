@@ -57,6 +57,7 @@ def ensure_connection(wlan: network.WLAN) -> None:
             the connection status and attempts a reconnection if needed.
     """
     if not wlan.isconnected() or not _can_access_internet(wlan):
+        onboard_led_lib.blink_sos()
         _cycle_wlan(wlan)
     if not wlan.isconnected():
         onboard_led_lib.display_error_until_next_command()
