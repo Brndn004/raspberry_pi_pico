@@ -61,3 +61,4 @@ def ensure_connection(wlan: network.WLAN) -> None:
         _cycle_wlan(wlan)
     if not wlan.isconnected():
         onboard_led_lib.display_error_until_next_command()
+        # Maybe add return value so we can act on it?

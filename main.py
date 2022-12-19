@@ -18,7 +18,7 @@ while True:
         wifi_connection_utils.ensure_connection(wlan)
         time_is_set = time_utils.set_time_via_internet()
     print(time_utils.get_time())
-    if time_is_set and time_utils.time_matches_now(9, 30):
+    if time_is_set and time_utils.time_matches_now(6, 10):  # No way I regret this.
         pwm_utils.fade_pwm(pwm_led, 5*60, 0, 100)  # 5 minute fade-in time.
     onboard_led_lib.heart_beat()
     time.sleep(1)
