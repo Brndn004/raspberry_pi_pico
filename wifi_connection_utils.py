@@ -6,6 +6,8 @@ import urequests
 import onboard_led_lib
 
 
+# It's a good thing this repo isn't public since I'm storing these as plaintext.
+# No way this comes back to bite me.
 SSID: str = "probablymalicious"
 PW: str = "installavirusnow"
 
